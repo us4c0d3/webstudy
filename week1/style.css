@@ -158,8 +158,37 @@ ul, li {
     margin-bottom: 10px;
 }
 
-.right_list {
+.aside-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    opacity: 0.9;
+    font-size: 14px;
+}
+.todo-badge {
+    min-width: 18px;
+    line-height: 18px;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 9px;
+    padding: 0 5px;
+    background-color: var(--knu-red);
+    color: #ffffff;
+}
+.aside-list-item > div > span {
+    display: flex;
+    flex-direction: column;
+    color: var(--description-color);
+}
+.aside-list-item > div > span:nth-child(1) {
+    color: #333333;
 
+}
+.aside-list-item > div > span:nth-child(2), .aside-list-item > div > span:nth-child(3) {
+    
 }
 .todo {
 
