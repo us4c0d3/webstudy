@@ -112,7 +112,6 @@ ul, li {
     color: var(--background-color);
     padding: 7px;
     margin: 10px;
-    border-radius: 4px;
 }
 .card {
     display: inline-block;
