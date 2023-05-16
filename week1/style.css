@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone&display=swap');
+:root {
+    --knu-red: #d20f17;
+    --background-color: #ffffff;
+    --description-color: #6c757c;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+body {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Noto Sans KR', sans-serif;
+    align-items: center;
+    height: 100%;
+}
+ul, li {
+    list-style: none;
+    padding-left: 0px;
+    margin-left: 0px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 0px;
+}
+
+#nav {
+    position: fixed;
+    top: 0;
+    width: 84px;
+    height: 100%;
+    background-color: var(--knu-red);
+    color: white;
+    overflow-y: scroll;
+    z-index: 1;
+}
+#main-content {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    margin-left:54px;
+}
+#aside {
+    width: 240px;
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.logo{
+    width: 64px;
+    height: 64px;
+    display: block;
+    margin: 10px auto;
+}
+.logo img{
+    text-align: center;
+}
+.avatar img{
+    border-radius:100%;
+    width:40px;
+    height:40px;
+    box-sizing:border-box;
+    border:2px solid #ffffff;
+    display:inline-block;
+    vertical-align:middle;
+    margin:0 10px;
+    background-color: var(--knu-red);
+}
+#selected {
+    background-color: #ffffff;
+    color: var(--knu-red);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    z-index: 2;
+    border-bottom: gray 1px solid;
+    margin: 0 40px;
+    background-color: var(--background-color);
+    opacity: 0.9;
+}
+
+.dashboard-card {
+    padding: 30px;
+}
+.card_red {
+    --card-color: #d41e00;
+}
+.card_blue {
+    --card-color: #254284;
+}
+.card_green {
+    --card-color: #008400;
+}
+.card_purple {
+    --card-color: #91349b;
+}
+.option {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--background-color);
+    padding: 7px;
+    margin: 10px;
+    border-radius: 4px;
+}
+.card {
+    display: inline-block;
+    vertical-align: top;
+    width: 260px;
+    height: 260px;
+    background-color: var(--card-color);
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.3);
+    margin: 0 30px 30px 0;
+}
+.card-info {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--background-color);
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.card-info>span:nth-child(1) {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--card-color);
+}
+.card-info>span:nth-child(2) {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--description-color);
+}
+.card-info>span:nth-child(3) {
+    font-size: 12px;
+    font-weight: 200;
+    color: var(--description-color);
+}
+.card-info > div {
+    display: flex;
+    align-items: center;
+    color: var(--description-color);
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.right_list {
+
+}
+.todo {
+
+}
