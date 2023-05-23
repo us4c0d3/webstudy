@@ -1,6 +1,6 @@
-let readline = require('readline-sync');
-let User = require('./user.js');
-let info = require('./info.js');
+const readline = require('readline-sync');
+const User = require('./user.js');
+const info = require('./info.js');
 
 users = [];
 
