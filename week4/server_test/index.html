@@ -23,7 +23,7 @@
             });
             const todos = await res.text();
             const todoList = todos.split('\n');
-            list.innerHTML = todoList.map(todo => `<li>${todo}</li>`).join('');
+            list.innerHTML = todoList.map(todo => `<li>${todo} <button id="del">delete</button></li>`).join('');
         }
         getTodoList();
 
@@ -32,6 +32,22 @@
             const todo = document.querySelector('#todo').value;
             const res = await fetch('/todolist', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ todo }),
+            });
+            const result = await res.text();
+            if(result === 'ok') {
+                getTodoList();
+            }
+        });
+
+        const delBtn = document.querySelector('#del');
+        delBtn.addEventListener('click', async () => {
+            const todo = document.querySelector('#todo').value;
+            const res = await fetch('/todolist', {
+                method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
                 },

@@ -28,6 +28,23 @@ function whenIncomingRequest(request, response) {
             response.end('ok');
         });
     }
+
+    if(request.url === '/todolist' && request.method === 'DELETE') {
+        let body = '';
+        request.on('data', (chunk) => {
+            body += chunk;
+        });
+        request.on('end', () => {
+            const todoList = fs.readFileSync('todoList.txt', 'utf-8').trim().split('\n');
+            if(!todoList.includes(body)) {
+                response.statusCode = 404;
+                response.end('not found');
+                return;
+            }
+            fs.writeFileSync('todoList.txt', todoList.filter(item => item !== body).join('\n'));
+            response.end('ok');
+        });
+    }
 }
 
 const server = http.createServer(whenIncomingRequest);
