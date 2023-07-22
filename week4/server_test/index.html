@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+</head>
+<body>
+    <h1>TODO List</h1>
+    <ul>
+        
+    </ul>
+    <input type="text" id="todo" placeholder="할 일을 입력하세요">
+    <button id="add">추가</button>
+    <script>
+        const list = document.querySelector('ul');
+        async function getTodoList() {
+            const res = await fetch('/todolist', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+            const todos = await res.text();
+            const todoList = todos.split('\n');
+            list.innerHTML = todoList.map(todo => `<li>${todo}</li>`).join('');
+        }
+        getTodoList();
+
+        const addBtn = document.querySelector('#add');
+        addBtn.addEventListener('click', async () => {
+            const todo = document.querySelector('#todo').value;
+            const res = await fetch('/todolist', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ todo }),
+            });
+            const result = await res.text();
+            if(result === 'ok') {
+                getTodoList();
+            }
+        });
+    </script>
+</body>
+</html>
