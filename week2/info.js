@@ -1,5 +1,5 @@
-let readline = require('readline-sync');
-let User = require('./user.js');
+const readline = require('readline-sync');
+const User = require('./user.js');
 
 function printMenu() {
     console.log("1. 회원정보 추가");
@@ -80,6 +80,7 @@ function modifyUser() {
     } else {
         let department = readline.question("부서: ");
         let phone = readline.question("전화번호: ");
+        phone.replace(/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, '$1-$2-$3');
         let age = readline.question("나이: ");
         let address = readline.question("주소: ");
         users[index].department = department;
